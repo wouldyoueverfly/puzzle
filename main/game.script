@@ -70,27 +70,6 @@ function init(self)
 	msg.post("#done", "disable")
 end
 
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function update(self, dt)
-	-- local p = go.get_position("/animation#replicate")
-	-- p = p + 10 * dir * dt
-	-- go.set_position(p, "/animation#replicate")
-end
-
-function fixed_update(self, dt)
-	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
-	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
-	-- Physics section of game.project
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
 function on_message(self, message_id, message, sender)
 	if message_id == hash("tile_moved") then
 			self.board = swap(self.board, swap_i, swap_j)
@@ -128,17 +107,7 @@ function on_input(self, action_id, action)
 			msg.post("#done", "enable")
 		end
 	end
-	if action_id == hash("solve") then
-		-- self.board = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0}
-		-- draw(self.board)
-		-- self.done = true
-		-- msg.post("#done", "enable")
-		tilemap.set_visible("#tilemap", "layer1", false)
-	end
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
+	-- if action_id == hash("solve") then
+	-- 	tilemap.set_visible("#tilemap", "layer1", false)
+	-- end
 end
